@@ -9,4 +9,3 @@ root.render(
   </React.StrictMode>
 );
 
-<head><link rel="icon" href="./assets/Favicon.ico" /></head>
