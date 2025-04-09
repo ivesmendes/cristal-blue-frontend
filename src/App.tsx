@@ -1,11 +1,13 @@
 import React from 'react';
-import LoginPage from './pages/LoginPage';
-import Header from './components/Header';
-import { Contact } from 'lucide-react';
-import ContactPage from './pages/ContactPage';
+import { BrowserRouter as Router } from 'react-router-dom';
+import AppRoutes from './routes/Routes';
 
 function App() {
-  return <ContactPage />;
+  return (
+    <Router>
+      <AppRoutes/>
+    </Router>
+  );
 }
 
 export default App;
