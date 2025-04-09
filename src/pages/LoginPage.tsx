@@ -16,21 +16,21 @@ import {
 } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 
+// Importe a logo da Cristal Blue.
+// Ajuste o caminho caso o arquivo esteja em outra pasta.
+import CristalBlueLogo from '../assets/cristalblue.jpeg';
+
 function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [isRobotChecked, setIsRobotChecked] = useState(false);
 
-  // Função chamada ao clicar no botão "Entrar"
   const handleLogin = () => {
     if (!isRobotChecked) {
       alert('Por favor, confirme que você não é um robô.');
       return;
     }
-
-    // Aqui você chamaria seu serviço (ex: axios) para fazer o login no backend.
-    // Por exemplo: api.post('/login', { email, password })...
     console.log('Tentando logar com', { email, password });
   };
 
@@ -41,31 +41,64 @@ function LoginPage() {
   return (
     <Box
       sx={{
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        bgcolor: '#0b1354', // azul escuro, semelhante ao Buson
+        width: '100vw',
+        height: '100vh',
+        position: 'relative',
+        margin: 0,
+        padding: 0,
       }}
     >
-      {/* Cabeçalho fake (faixa azul) - se quiser algo mais elaborado, use AppBar */}
-      <Box sx={{ flex: '0 0 200px' }} />
-
-      {/* Container de login */}
+      {/* Metade Superior (Azul) */}
       <Box
         sx={{
-          flexGrow: 1,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          bgcolor: '#fff',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '50%',
+          backgroundColor: '#0b1354',
+        }}
+      />
+
+      {/* Metade Inferior (Branca) */}
+      <Box
+        sx={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          width: '100%',
+          height: '50%',
+          backgroundColor: '#fff',
+        }}
+      />
+
+      {/* Card de Login CENTRALIZADO na tela */}
+      <Box
+        sx={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
         }}
       >
         <Paper elevation={3} sx={{ p: 4, width: '350px', textAlign: 'center' }}>
+          {/* Logo no topo do card */}
+          <Box
+            component="img"
+            src={CristalBlueLogo}
+            alt="Cristal Blue Logo"
+            sx={{
+              width: 100,
+              display: 'block',
+              margin: '0 auto',
+              mb: 2,
+            }}
+          />
+
           <Typography variant="h5" sx={{ mb: 2 }}>
             Faça seu login no Cristal Blue
           </Typography>
 
-          {/* Botão "Entrar com Google" - apenas layout */}
           <Button
             variant="outlined"
             fullWidth
@@ -77,7 +110,6 @@ function LoginPage() {
 
           <Divider sx={{ mb: 2 }}>ou</Divider>
 
-          {/* Campo de Email */}
           <TextField
             label="Email"
             variant="outlined"
@@ -87,7 +119,6 @@ function LoginPage() {
             onChange={(e) => setEmail(e.target.value)}
           />
 
-          {/* Campo de Senha (com botão para mostrar/ocultar) */}
           <FormControl variant="outlined" fullWidth sx={{ mb: 2 }}>
             <InputLabel htmlFor="password">Senha</InputLabel>
             <OutlinedInput
@@ -98,10 +129,7 @@ function LoginPage() {
               onChange={(e) => setPassword(e.target.value)}
               endAdornment={
                 <InputAdornment position="end">
-                  <IconButton
-                    onClick={handleToggleShowPassword}
-                    edge="end"
-                  >
+                  <IconButton onClick={handleToggleShowPassword} edge="end">
                     {showPassword ? <VisibilityOff /> : <Visibility />}
                   </IconButton>
                 </InputAdornment>
@@ -109,7 +137,6 @@ function LoginPage() {
             />
           </FormControl>
 
-          {/* Checkbox "Não sou um robô" (simulando reCAPTCHA) */}
           <FormControlLabel
             control={
               <Checkbox
@@ -118,10 +145,9 @@ function LoginPage() {
               />
             }
             label="Não sou um robô"
-            sx={{ mb: 2, display: 'block', textAlign: 'left' }}
+            sx={{ mb: 2, textAlign: 'left' }}
           />
 
-          {/* Botão Entrar */}
           <Button
             variant="contained"
             color="warning"
