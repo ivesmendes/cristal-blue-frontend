@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Link as MuiLink, Container, useMediaQuery } from '@mui/material';
+import { Box, Button, Link as MuiLink, Container, useMediaQuery, Typography } from '@mui/material';
 import { Home, Map, Ticket, Phone, LogIn } from 'lucide-react';
 import HeaderImg from '../assets/HeaderCristalBlue.png';
 import { Link } from 'react-router-dom';
@@ -14,34 +14,36 @@ const Header = () => {
       component="header"
       sx={{
         width: '100%',
-        backgroundColor: '#1e3a8a',
-        boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06)',
+        backgroundColor: 'rgba(15, 23, 42, 0.9)',
+        backdropFilter: 'blur(8px)',
+        boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
         position: 'fixed',
         top: 0,
         left: 0,
         zIndex: 1000,
         py: 1,
-        px: 2,
+        borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
       }}
     >
       <Container
-        maxWidth="lg"
+        maxWidth="xl"
         sx={{
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
+          px: { xs: 2, md: 4 },
         }}
       >
-        {/* Logo */}
+        {/* Logo com tipografia personalizada */}
         <Box sx={{ display: 'flex', alignItems: 'center', height: 60 }}>
           <Box
             component="img"
             src={HeaderImg}
             alt="Cristal Blue"
             sx={{
-              height: { xs: 80, sm: 120 },
+              height: { xs: 60, sm: 140 },
               objectFit: 'contain',
-              filter: 'brightness(0) invert(1)',
+              mr: 2,
             }}
           />
         </Box>
@@ -52,7 +54,7 @@ const Header = () => {
             component="nav"
             sx={{
               display: 'flex',
-              gap: { xs: 2, md: 4 },
+              gap: { xs: 1, md: 3 },
               alignItems: 'center',
             }}
           >
@@ -61,11 +63,20 @@ const Header = () => {
               to="#"
               underline="none"
               sx={{
-                color: '#fff',
+                color: '#e2e8f0',
                 fontWeight: 500,
-                fontSize: '1.1rem',
-                '&:hover': { color: '#93c5fd' },
-                whiteSpace: 'nowrap',
+                fontSize: '1rem',
+                fontFamily: '"Inter", sans-serif',
+                letterSpacing: '0.5px',
+                transition: 'all 0.3s ease',
+                px: 2,
+                py: 1,
+                borderRadius: '6px',
+                '&:hover': {
+                  color: '#ffffff',
+                  backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                  transform: 'translateY(-2px)',
+                },
                 display: 'flex',
                 alignItems: 'center',
               }}
@@ -79,11 +90,20 @@ const Header = () => {
               to="#"
               underline="none"
               sx={{
-                color: '#fff',
+                color: '#e2e8f0',
                 fontWeight: 500,
-                fontSize: '1.1rem',
-                '&:hover': { color: '#93c5fd' },
-                whiteSpace: 'nowrap',
+                fontSize: '1rem',
+                fontFamily: '"Inter", sans-serif',
+                letterSpacing: '0.5px',
+                transition: 'all 0.3s ease',
+                px: 2,
+                py: 1,
+                borderRadius: '6px',
+                '&:hover': {
+                  color: '#ffffff',
+                  backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                  transform: 'translateY(-2px)',
+                },
                 display: 'flex',
                 alignItems: 'center',
               }}
@@ -97,11 +117,20 @@ const Header = () => {
               to="#"
               underline="none"
               sx={{
-                color: '#fff',
+                color: '#e2e8f0',
                 fontWeight: 500,
-                fontSize: '1.1rem',
-                '&:hover': { color: '#93c5fd' },
-                whiteSpace: 'nowrap',
+                fontSize: '1rem',
+                fontFamily: '"Inter", sans-serif',
+                letterSpacing: '0.5px',
+                transition: 'all 0.3s ease',
+                px: 2,
+                py: 1,
+                borderRadius: '6px',
+                '&:hover': {
+                  color: '#ffffff',
+                  backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                  transform: 'translateY(-2px)',
+                },
                 display: 'flex',
                 alignItems: 'center',
               }}
@@ -115,11 +144,20 @@ const Header = () => {
               to="/contato"
               underline="none"
               sx={{
-                color: '#fff',
+                color: '#e2e8f0',
                 fontWeight: 500,
-                fontSize: '1.1rem',
-                '&:hover': { color: '#93c5fd' },
-                whiteSpace: 'nowrap',
+                fontSize: '1rem',
+                fontFamily: '"Inter", sans-serif',
+                letterSpacing: '0.5px',
+                transition: 'all 0.3s ease',
+                px: 2,
+                py: 1,
+                borderRadius: '6px',
+                '&:hover': {
+                  color: '#ffffff',
+                  backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                  transform: 'translateY(-2px)',
+                },
                 display: 'flex',
                 alignItems: 'center',
               }}
@@ -133,24 +171,28 @@ const Header = () => {
               to="/login"
               variant="contained"
               sx={{
-                backgroundColor: '#2563eb',
-                color: '#fff',
+                background: 'linear-gradient(90deg, #3b82f6 0%, #2563eb 100%)',
+                color: '#ffffff',
                 fontWeight: 600,
-                fontSize: '1.1rem',
-                borderRadius: 1,
-                px: 4,
-                py: 1.2,
+                fontSize: '1rem',
+                borderRadius: '8px',
+                px: 3,
+                py: 1,
                 textTransform: 'none',
-                whiteSpace: 'nowrap',
+                fontFamily: '"Inter", sans-serif',
+                letterSpacing: '0.5px',
+                boxShadow: '0 4px 6px rgba(59, 130, 246, 0.2)',
+                transition: 'all 0.3s ease',
+                ml: 2,
                 '&:hover': {
-                  backgroundColor: '#1d4ed8',
-                  transform: 'translateY(-1px)',
-                  boxShadow: '0 4px 6px -1px rgba(37, 99, 235, 0.2)',
+                  transform: 'translateY(-2px)',
+                  boxShadow: '0 6px 12px rgba(59, 130, 246, 0.3)',
+                  background: 'linear-gradient(90deg, #2563eb 0%, #1d4ed8 100%)',
                 },
               }}
               startIcon={<LogIn size={18} />}
             >
-              Entrar
+              Login
             </Button>
           </Box>
         )}
