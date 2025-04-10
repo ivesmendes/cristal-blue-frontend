@@ -15,9 +15,9 @@ import {
   Checkbox
 } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
+import GoogleIcon from '@mui/icons-material/Google';
 
-// Importe a logo da Cristal Blue.
-// Ajuste o caminho caso o arquivo esteja em outra pasta.
+// Importe sua logo (ajuste o caminho conforme necessário)
 import CristalBlueLogo from '../assets/cristalblue.jpeg';
 
 function LoginPage() {
@@ -43,139 +43,175 @@ function LoginPage() {
       sx={{
         width: '100vw',
         height: '100vh',
-        position: 'relative',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        background: 'linear-gradient(to bottom, #0b1354 50%, #fff 50%)',
+        overflow: 'hidden',
         margin: 0,
-        padding: 0,
+        padding: 0
       }}
     >
-      {/* Metade Superior (Azul) */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '50%',
-          backgroundColor: '#0b1354',
-        }}
-      />
+      <Paper elevation={3} sx={{ 
+        p: 3, 
+        width: '100%', 
+        maxWidth: '400px',
+        textAlign: 'center',
+        borderRadius: '12px',
+        margin: '16px' // Adiciona margem interna para evitar tocar nas bordas
+      }}>
+        {/* Logo da Cristal Blue */}
+        <Box 
+          component="img"
+          src={CristalBlueLogo}
+          alt="Cristal Blue Logo"
+          sx={{
+            height: '80px', // Ajuste conforme necessário
+            mb: 1,
+            objectFit: 'contain'
+          }}
+        />
 
-      {/* Metade Inferior (Branca) */}
-      <Box
-        sx={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          width: '100%',
-          height: '50%',
-          backgroundColor: '#fff',
-        }}
-      />
+        <Typography variant="h5" component="h1" sx={{ 
+          mb: 3,
+          fontWeight: 'bold',
+          color: '#0b1354'
+        }}>
+          Faça seu login no Cristal Blue
+        </Typography>
 
-      {/* Card de Login CENTRALIZADO na tela */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-        }}
-      >
-        <Paper elevation={3} sx={{ p: 4, width: '350px', textAlign: 'center' }}>
-          {/* Logo no topo do card */}
-          <Box
-            component="img"
-            src={CristalBlueLogo}
-            alt="Cristal Blue Logo"
-            sx={{
-              width: 100,
-              display: 'block',
-              margin: '0 auto',
-              mb: 2,
-            }}
-          />
+        <Button
+          variant="outlined"
+          fullWidth
+          sx={{ 
+            mb: 3,
+            py: 1.5,
+            textTransform: 'none',
+            fontSize: '1rem',
+            borderColor: '#ddd',
+            '&:hover': { borderColor: '#bbb' }
+          }}
+          startIcon={<GoogleIcon />}
+          onClick={() => console.log('Login com Google')}
+        >
+          ENTRAR COM GOOGLE
+        </Button>
 
-          <Typography variant="h5" sx={{ mb: 2 }}>
-            Faça seu login no Cristal Blue
-          </Typography>
+        <Divider sx={{ 
+          mb: 3, 
+          color: 'text.secondary',
+          '&::before, &::after': {
+            borderColor: '#ddd'
+          }
+        }}>
+          OU
+        </Divider>
 
-          <Button
-            variant="outlined"
-            fullWidth
-            sx={{ mb: 2 }}
-            onClick={() => console.log('Login com Google')}
-          >
-            Entrar com Google
-          </Button>
+        <TextField
+          label="Email"
+          variant="outlined"
+          fullWidth
+          sx={{ mb: 2 }}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          size="small"
+        />
 
-          <Divider sx={{ mb: 2 }}>ou</Divider>
-
-          <TextField
-            label="Email"
-            variant="outlined"
-            fullWidth
-            sx={{ mb: 2 }}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-
-          <FormControl variant="outlined" fullWidth sx={{ mb: 2 }}>
-            <InputLabel htmlFor="password">Senha</InputLabel>
-            <OutlinedInput
-              id="password"
-              label="Senha"
-              type={showPassword ? 'text' : 'password'}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton onClick={handleToggleShowPassword} edge="end">
-                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              }
-            />
-          </FormControl>
-
-          <FormControlLabel
-            control={
-              <Checkbox
-                checked={isRobotChecked}
-                onChange={(e) => setIsRobotChecked(e.target.checked)}
-              />
+        <FormControl variant="outlined" fullWidth sx={{ mb: 2 }}>
+          <InputLabel htmlFor="password" size="small">Senha</InputLabel>
+          <OutlinedInput
+            id="password"
+            label="Senha"
+            type={showPassword ? 'text' : 'password'}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            size="small"
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton 
+                  onClick={handleToggleShowPassword} 
+                  edge="end"
+                  size="small"
+                >
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
             }
-            label="Não sou um robô"
-            sx={{ mb: 2, textAlign: 'left' }}
           />
+        </FormControl>
 
-          <Button
-            variant="contained"
-            color="warning"
-            fullWidth
-            onClick={handleLogin}
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={isRobotChecked}
+              onChange={(e) => setIsRobotChecked(e.target.checked)}
+              size="small"
+              sx={{ color: '#0b1354' }}
+            />
+          }
+          label="Não sou um robô"
+          sx={{ 
+            mb: 2, 
+            alignSelf: 'flex-start',
+            '& .MuiTypography-root': { 
+              fontSize: '0.875rem',
+              color: '#555'
+            }
+          }}
+        />
+
+        <Button
+          variant="contained"
+          fullWidth
+          sx={{ 
+            mb: 2,
+            py: 1.5,
+            backgroundColor: '#0b1354',
+            '&:hover': { backgroundColor: '#1a237e' },
+            fontWeight: 'bold',
+            fontSize: '1rem'
+          }}
+          onClick={handleLogin}
+        >
+          ENTRAR
+        </Button>
+
+        <Typography
+          variant="body2"
+          sx={{ 
+            mt: 1, 
+            cursor: 'pointer', 
+            color: '#0b1354',
+            textDecoration: 'underline',
+            fontSize: '0.875rem',
+            '&:hover': { color: '#1a237e' }
+          }}
+          onClick={() => console.log('Esqueci senha')}
+        >
+          Esqueceu a senha?
+        </Typography>
+
+        <Typography variant="body2" sx={{ 
+          mt: 2, 
+          fontSize: '0.875rem',
+          color: '#555'
+        }}>
+          Você ainda não tem uma conta?{' '}
+          <Box
+            component="span"
+            sx={{ 
+              color: '#0b1354', 
+              cursor: 'pointer',
+              textDecoration: 'underline',
+              fontWeight: '500',
+              '&:hover': { color: '#1a237e' }
+            }}
+            onClick={() => console.log('Cadastrar')}
           >
-            Entrar
-          </Button>
-
-          <Typography
-            variant="body2"
-            sx={{ mt: 2, cursor: 'pointer', color: 'primary.main' }}
-            onClick={() => console.log('Esqueci senha')}
-          >
-            Esqueceu a senha?
-          </Typography>
-
-          <Typography variant="body2" sx={{ mt: 1 }}>
-            Você ainda não tem uma conta?{' '}
-            <span
-              style={{ color: '#1976d2', cursor: 'pointer' }}
-              onClick={() => console.log('Cadastrar')}
-            >
-              Cadastre-se
-            </span>
-          </Typography>
-        </Paper>
-      </Box>
+            Cadastre-se
+          </Box>
+        </Typography>
+      </Paper>
     </Box>
   );
 }
