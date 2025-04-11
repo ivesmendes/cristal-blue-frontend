@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import {
-  Box,
-  Paper,
-  Typography,
-  TextField,
-  Button,
-  Divider,
-  IconButton,
-  InputAdornment,
-  FormControl,
-  InputLabel,
-  OutlinedInput,
-  FormControlLabel,
-  Checkbox
+import { 
+  Box, 
+  Paper, 
+  Typography, 
+  TextField, 
+  Button, 
+  Divider, 
+  IconButton, 
+  InputAdornment, 
+  FormControl, 
+  InputLabel, 
+  OutlinedInput, 
+  FormControlLabel, 
+  Checkbox 
 } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import GoogleIcon from '@mui/icons-material/Google';
@@ -46,19 +46,33 @@ function LoginPage() {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        background: 'linear-gradient(to bottom, #0b1354 50%, #fff 50%)',
+        background: 'linear-gradient(to bottom,rgb(28, 85, 170) 0%,rgb(10, 31, 90) 100%)', // Gradiente do azul claro para o escuro
         overflow: 'hidden',
-        margin: 0,
+        margin: -1,
         padding: 0
       }}
     >
+      <Box
+        sx={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          background: 'none', // Removido o background da imagem do ônibus
+          filter: 'blur(10px)', // Efeito de blur
+          zIndex: -1,
+        }}
+      ></Box>
+
       <Paper elevation={3} sx={{ 
         p: 3, 
         width: '100%', 
         maxWidth: '400px',
         textAlign: 'center',
         borderRadius: '12px',
-        margin: '16px' // Adiciona margem interna para evitar tocar nas bordas
+        margin: '16px', // Adiciona margem interna para evitar tocar nas bordas
+        backgroundColor: 'rgba(255, 255, 255, 0.9)', // Fundo branco com leve transparência
       }}>
         {/* Logo da Cristal Blue */}
         <Box 
