@@ -14,7 +14,7 @@ const Header = () => {
       component="header"
       sx={{
         width: '100%',
-        backgroundColor: 'rgba(15, 23, 42, 0.9)',
+        backgroundColor: 'rgba(15, 23, 42, 0.9)', // Cor de fundo azul escuro
         backdropFilter: 'blur(8px)',
         boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
         position: 'fixed',
@@ -41,7 +41,7 @@ const Header = () => {
             src={HeaderImg}
             alt="Cristal Blue"
             sx={{
-              height: { xs: 60, sm: 140 },
+              height: { xs: 60, sm: 120 },
               objectFit: 'contain',
               mr: 2,
             }}
