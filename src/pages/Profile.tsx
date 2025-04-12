@@ -53,7 +53,7 @@ const Profile = () => {
             </Avatar>
             <Box>
               <Typography variant="h4" component="h1" sx={{ fontWeight: 700 }}>
-                guilherme
+                Guilherme
               </Typography>
               <Typography variant="body1" sx={{ opacity: 0.8, mt: 0.5 }}>
                 guiribaps4@gmail.com
@@ -84,7 +84,7 @@ const Profile = () => {
           Minhas passagens
         </Typography>
         <Typography variant="body1" sx={{ mb: 4, color: '#64748b' }}>
-          Acerca sua última passagem comparada.
+          Aqui você pode visualizar suas últimas passagens compradas.
         </Typography>
 
         <Box
@@ -115,7 +115,7 @@ const Profile = () => {
               </Typography>
             </Box>
             <Typography variant="body2" sx={{ color: '#64748b', mb: 3 }}>
-              Tenha conteúdo de quais qualificações quer receber e se desvalorar do resto.
+              Receba conteúdo sobre as qualificações que você deseja e se desinscreva do resto.
             </Typography>
             <Button
               variant="outlined"
@@ -153,7 +153,7 @@ const Profile = () => {
               </Typography>
             </Box>
             <Typography variant="body2" sx={{ color: '#64748b', mb: 3 }}>
-              Adotare-se exclui, forma de pagamento para aplicar o pagamento da sua próxima córrega.
+              Gerencie suas formas de pagamento para facilitar o pagamento de suas próximas compras.
             </Typography>
             <Button
               variant="outlined"
@@ -191,7 +191,7 @@ const Profile = () => {
               </Typography>
             </Box>
             <Typography variant="body2" sx={{ color: '#64748b', mb: 3 }}>
-              Alixer sua senha de maneira segura e independente.
+              Altere sua senha de forma segura e independente.
             </Typography>
             <Button
               variant="outlined"
@@ -204,6 +204,8 @@ const Profile = () => {
                   backgroundColor: '#f1f5f9',
                 },
               }}
+              component={Link}
+              to="/MudarSenha"  // Adicionando o link para "Mudar Senha"
             >
               Alterar
             </Button>
