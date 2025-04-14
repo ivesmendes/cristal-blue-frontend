@@ -12,10 +12,12 @@ import {
   InputLabel, 
   OutlinedInput, 
   FormControlLabel, 
-  Checkbox 
+  Checkbox,
+  Icon 
 } from '@mui/material';
-import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { Visibility, VisibilityOff, ArrowBack } from '@mui/icons-material';
 import GoogleIcon from '@mui/icons-material/Google';
+import { useNavigate } from 'react-router-dom';
 
 // Importe sua logo (ajuste o caminho conforme necessário)
 import CristalBlueLogo from '../assets/cristalblue.jpeg';
@@ -25,6 +27,7 @@ function LoginPage() {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [isRobotChecked, setIsRobotChecked] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogin = () => {
     if (!isRobotChecked) {
@@ -38,6 +41,10 @@ function LoginPage() {
     setShowPassword(!showPassword);
   };
 
+  const handleBackToHome = () => {
+    navigate('/home'); 
+  };
+
   return (
     <Box
       sx={{
@@ -49,9 +56,28 @@ function LoginPage() {
         background: 'linear-gradient(to bottom,rgb(28, 85, 170) 0%,rgb(10, 31, 90) 100%)', // Gradiente do azul claro para o escuro
         overflow: 'hidden',
         margin: -1,
-        padding: 0
+        padding: 0,
+        position: 'relative'
       }}
     >
+      {/* Botão de voltar para home */}
+      <Button
+        startIcon={<ArrowBack />}
+        onClick={handleBackToHome}
+        sx={{
+          position: 'absolute',
+          top: 16,
+          left: 16,
+          color: 'white',
+          backgroundColor: 'rgba(255, 255, 255, 0.2)',
+          '&:hover': {
+            backgroundColor: 'rgba(255, 255, 255, 0.3)'
+          }
+        }}
+      >
+        Voltar
+      </Button>
+
       <Box
         sx={{
           position: 'absolute',
