@@ -4,7 +4,7 @@ import LoginPage from '../pages/LoginPage';
 import ContactPage from '../pages/ContactPage';
 import Profile from '../pages/Profile';
 import HomePage from '../pages/HomePage';
-import ChangePasswordPage from '../pages/ChangePassword';
+
 
 function AppRoutes() {
   return (
@@ -13,7 +13,7 @@ function AppRoutes() {
       <Route path="/contato" element={<ContactPage />} />
       <Route path='/perfil' element={<Profile/>}/>
       <Route path='/home' element={<HomePage/>}/>
-      <Route path='/mudarsenha' element={<ChangePasswordPage/>}/>
+      
     </Routes>
   );
 }
